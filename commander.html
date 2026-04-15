@@ -22,7 +22,7 @@
 <div class="mobile-nav">
   <button class="mobile-nav-close">&#x2715;</button>
   <a href="index.html">Accueil</a><a href="menu.html">Menu</a>
-  <a href="commander.html">Commander</a><a href="reservation.html">Réserver</a><a href="contact.html">Contact</a>
+  <a href="commander.html">Commander</a><a href="contact.html">Contact</a>
 </div>
 
 <nav>
@@ -31,7 +31,6 @@
     <li><a href="index.html">Accueil</a></li>
     <li><a href="menu.html">Notre Menu</a></li>
     <li><a href="commander.html" style="color:var(--gold)">Commander</a></li>
-    <li><a href="reservation.html">Réserver</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="commander.html" class="nav-cta">Commander en ligne</a></li>
   </ul>
@@ -70,7 +69,7 @@
       <div class="form-group"><label>Code Postal</label><input type="text" class="form-control" placeholder="60600" id="delivery-cp"></div>
       <div class="form-group"><label>Ville</label><input type="text" class="form-control" placeholder="Clermont" id="delivery-city"></div>
     </div>
-    <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">🛵 Livraison dès 18h</p>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">11H à 22H30 sans coupure · du lundi au lundi · 🛵 livraison gratuite dès 18H</p>
   </div>
 
   <div class="delivery-info" id="pickup-info">
@@ -95,12 +94,12 @@
   <!-- ASSIETTES -->
   <div id="assiettes" class="menu-category active"><div class="menu-items-grid">
     <div class="menu-item">
-      <img src="images/sandwich_kebab.jpeg" class="menu-item-img" alt="Assiette Kebab">
+      <img src="images/assiette_burgers_tacos.jpeg" class="menu-item-img" alt="Assiette Kebab">
       <div class="menu-item-content">
         <div class="menu-item-name">Assiette Kebab</div>
         <div class="menu-item-desc">Kebab, frites, boulgour, crudités</div>
         <div class="menu-item-footer"><div class="menu-item-price">11 €</div>
-        <button class="add-to-cart" onclick="addToCart('Assiette Kebab',11,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Assiette Kebab',11,'assiette')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -109,7 +108,7 @@
         <div class="menu-item-name">Assiette Maxi Kebab</div>
         <div class="menu-item-desc">Grande portion kebab, frites, boulgour, crudités</div>
         <div class="menu-item-footer"><div class="menu-item-price">13 €</div>
-        <button class="add-to-cart" onclick="addToCart('Assiette Maxi Kebab',13,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Assiette Maxi Kebab',13,'assiette')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -118,7 +117,7 @@
         <div class="menu-item-name">Assiette Berlinois</div>
         <div class="menu-item-desc">Kebab, chou, concombre, feta, sauce maison, frites, boulgour</div>
         <div class="menu-item-footer"><div class="menu-item-price">13 €</div>
-        <button class="add-to-cart" onclick="addToCart('Assiette Berlinois',13,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Assiette Berlinois',13,'assiette')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -127,7 +126,7 @@
         <div class="menu-item-name">Assiette Kefta</div>
         <div class="menu-item-desc">Kefta grillée, frites, boulgour, crudités</div>
         <div class="menu-item-footer"><div class="menu-item-price">12 €</div>
-        <button class="add-to-cart" onclick="addToCart('Assiette Kefta',12,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Assiette Kefta',12,'assiette')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -238,7 +237,7 @@
         <div class="menu-item-name">Kebab</div>
         <div class="menu-item-desc">Kebab, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Kebab',7,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Kebab',7,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -247,7 +246,7 @@
         <div class="menu-item-name">Maxi Kebab</div>
         <div class="menu-item-desc">Grande portion kebab, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">8,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Maxi Kebab',8.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Maxi Kebab',8.5,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -256,7 +255,7 @@
         <div class="menu-item-name">Libanais</div>
         <div class="menu-item-desc">Pain libanais, kebab, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Libanais',7.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Libanais',7.5,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -265,7 +264,7 @@
         <div class="menu-item-name">Libanais Maxi</div>
         <div class="menu-item-desc">Grand pain libanais, kebab, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">9 €</div>
-        <button class="add-to-cart" onclick="addToCart('Libanais Maxi',9,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Libanais Maxi',9,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -274,7 +273,7 @@
         <div class="menu-item-name">Poulet / Poulet Curry</div>
         <div class="menu-item-desc">Poulet ou poulet curry, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Poulet',7.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Poulet',7.5,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -283,7 +282,7 @@
         <div class="menu-item-name">Triple Steak</div>
         <div class="menu-item-desc">3 steaks hachés, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7 €</div>
-        <button class="add-to-cart" onclick="addToCart('Triple Steak',7,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Triple Steak',7,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -292,7 +291,7 @@
         <div class="menu-item-name">Cordon Bleu</div>
         <div class="menu-item-desc">Cordon bleu, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Cordon Bleu',7,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Cordon Bleu',7,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -301,7 +300,7 @@
         <div class="menu-item-name">Agneau</div>
         <div class="menu-item-desc">Viande d'agneau, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">8 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Agneau',8,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Agneau',8,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -310,7 +309,7 @@
         <div class="menu-item-name">Merguez</div>
         <div class="menu-item-desc">Merguez, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Merguez',7,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Merguez',7,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -319,7 +318,7 @@
         <div class="menu-item-name">Turbo</div>
         <div class="menu-item-desc">Salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Turbo',7.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Turbo',7.5,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -328,7 +327,7 @@
         <div class="menu-item-name">RS4</div>
         <div class="menu-item-desc">3 steaks, fromage, jambon, œuf, salade, tomates, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">8 €</div>
-        <button class="add-to-cart" onclick="addToCart('RS4',8,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('RS4',8,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -337,7 +336,7 @@
         <div class="menu-item-name">Kefta</div>
         <div class="menu-item-desc">Kefta, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Kefta',7,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Kefta',7,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -346,7 +345,7 @@
         <div class="menu-item-name">Extrême <span class="ntag">New</span></div>
         <div class="menu-item-desc">Garniture XXL, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">8,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Extrême',8.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Extrême',8.5,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -355,7 +354,7 @@
         <div class="menu-item-name">Adana</div>
         <div class="menu-item-desc">Adana grillé, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Adana',7,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Adana',7,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -364,7 +363,7 @@
         <div class="menu-item-name">Blindé <span class="ntag">New</span></div>
         <div class="menu-item-desc">3 steaks, kebab, fromage, œuf, jambon, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">9 €</div>
-        <button class="add-to-cart" onclick="addToCart('Blindé',9,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Blindé',9,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -373,7 +372,7 @@
         <div class="menu-item-name">Végétarien</div>
         <div class="menu-item-desc">Légumes, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">7 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Végétarien',7,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Végétarien',7,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -382,7 +381,7 @@
         <div class="menu-item-name">Viking <span class="ntag">New</span></div>
         <div class="menu-item-desc">Salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">9 €</div>
-        <button class="add-to-cart" onclick="addToCart('Viking',9,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Viking',9,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -391,16 +390,16 @@
         <div class="menu-item-name">Mixte <span class="ntag">New</span></div>
         <div class="menu-item-desc">Mélange de viandes, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">9 €</div>
-        <button class="add-to-cart" onclick="addToCart('Sandwich Mixte',9,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Sandwich Mixte',9,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
       <img src="images/sandwich_triple_chevre.jpeg" class="menu-item-img" alt="Triple Chèvre">
       <div class="menu-item-content">
         <div class="menu-item-name">Triple Chèvre <span class="ntag">New</span></div>
-        <div class="menu-item-desc">Kebab + 1 viande, 3 steaks, 3 fromages de chèvre, salade, tomates, oignons</div>
+        <div class="menu-item-desc">3 steaks, 3 fromages de chèvre, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">8,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Triple Chèvre',8.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Triple Chèvre',8.5,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -409,7 +408,7 @@
         <div class="menu-item-name">Berlinois</div>
         <div class="menu-item-desc">Kebab, salade, chou blanc/rouge, concombre, feta, sauce maison</div>
         <div class="menu-item-footer"><div class="menu-item-price">8,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Berlinois',8.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Berlinois',8.5,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -418,7 +417,7 @@
         <div class="menu-item-name">Kebab au Four <span class="ntag">New</span></div>
         <div class="menu-item-desc">Viande de kebab, mozzarella gratinée au four</div>
         <div class="menu-item-footer"><div class="menu-item-price">8,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Kebab au Four',8.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Kebab au Four',8.5,'sandwich')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -427,7 +426,7 @@
         <div class="menu-item-name">Baguette Kebab <span class="ntag">New</span></div>
         <div class="menu-item-desc">Kebab en baguette, salade, tomate, oignons</div>
         <div class="menu-item-footer"><div class="menu-item-price">8,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Baguette Kebab',8.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Baguette Kebab',8.5,'sandwich')">+</button></div>
       </div>
     </div>
   </div></div>
@@ -508,7 +507,7 @@
   </div>
   <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:14px 16px;margin-top:12px;font-size:12px;color:var(--text-muted);line-height:1.8;">
     <strong style="color:var(--gold)">Viandes :</strong> Poulet · Viande hachée · Cordon Bleu · Nuggets · Tenders · Merguez · Kebab · Chicken Curry<br>
-    <strong style="color:var(--gold)">Suppléments :</strong> Fromage (Cheddar, Boursin, Chèvre, Feta) +0,50 € · Frites +2 € · Blanc de poulet +1 € · Œuf +1 €
+    <strong style="color:var(--gold)">Suppléments :</strong> Fromage (Cheddar, Boursin, Chèvre, Feta) +0,50 € · Frites +2 € · Œuf +1 €
   </div>
   </div>
   <!-- TACOS -->
@@ -519,7 +518,7 @@
         <div class="menu-item-name">Tacos Classique</div>
         <div class="menu-item-desc">1 viande au choix, fromage fondu, sauce</div>
         <div class="menu-item-footer"><div class="menu-item-price">7,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Tacos Classique',7.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Tacos Classique',7.5,'tacos')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -528,7 +527,7 @@
         <div class="menu-item-name">Tacos Double</div>
         <div class="menu-item-desc">2 viandes au choix, fromage fondu, sauce</div>
         <div class="menu-item-footer"><div class="menu-item-price">8,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Tacos Double',8.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Tacos Double',8.5,'tacos')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -537,7 +536,7 @@
         <div class="menu-item-name">Tacos Maxi</div>
         <div class="menu-item-desc">3 viandes au choix, fromage fondu, sauce</div>
         <div class="menu-item-footer"><div class="menu-item-price">10 €</div>
-        <button class="add-to-cart" onclick="addToCart('Tacos Maxi',10,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Tacos Maxi',10,'tacos')">+</button></div>
       </div>
     </div>
   </div></div>
@@ -591,7 +590,7 @@
         <div class="menu-item-name">Barquette Blé (Boulgour)</div>
         <div class="menu-item-desc">Boulgour nature ou assaisonné</div>
         <div class="menu-item-footer"><div class="menu-item-price">Petite 3,50 € / Grande 5,50 €</div>
-        <button class="add-to-cart" onclick="addToCart('Barquette Blé Petite',3.5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Barquette Blé',3.5,'barquette')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -600,7 +599,7 @@
         <div class="menu-item-name">Barquette Frites</div>
         <div class="menu-item-desc">Frites dorées et croustillantes</div>
         <div class="menu-item-footer"><div class="menu-item-price">Petite 3 € / Grande 5 €</div>
-        <button class="add-to-cart" onclick="addToCart('Barquette Frites Petite',3,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Barquette Frites',3,'barquette')">+</button></div>
       </div>
     </div>
     <div class="menu-item">
@@ -609,7 +608,7 @@
         <div class="menu-item-name">Barquette Viande</div>
         <div class="menu-item-desc">Viande grillée au choix</div>
         <div class="menu-item-footer"><div class="menu-item-price">Petite 5 € / Grande 8 €</div>
-        <button class="add-to-cart" onclick="addToCart('Barquette Viande Petite',5,'')">+</button></div>
+        <button class="add-to-cart" onclick="openConfigurator('Barquette Viande',5,'barquette')">+</button></div>
       </div>
     </div>
   </div></div>
@@ -744,7 +743,7 @@
   <div class="cart-items"><div class="cart-empty">Votre panier est vide</div></div>
   <div class="cart-total">
     <div class="cart-total-row"><span>Sous-total</span><span class="cart-subtotal">0,00 €</span></div>
-    <div class="cart-total-row" id="delivery-row" style="display:none;"><span>Frais de livraison</span><span class="cart-delivery-fee">2,90 €</span></div>
+    <div class="cart-total-row" id="delivery-row" style="display:none;"><span>Frais de livraison</span><span class="cart-delivery-fee">Gratuit</span></div>
     <div class="cart-total-row grand"><span>Total</span><span class="cart-grand-total">0,00 €</span></div>
     <div class="form-group" style="margin-top:16px;">
       <label>Heure souhaitée</label>
@@ -764,6 +763,17 @@
 </div>
 </div>
 
+
+<div class="config-modal" id="config-modal" style="display:none;">
+  <div class="config-modal-card">
+    <button class="config-close" type="button" onclick="closeConfigurator()">✕</button>
+    <div class="section-label" style="margin-bottom:10px;">Personnaliser</div>
+    <h3 id="config-title" style="margin-bottom:16px;"></h3>
+    <div id="config-fields"></div>
+    <button class="btn-primary" style="width:100%;margin-top:18px;" type="button" onclick="confirmConfigurator()">Ajouter au panier</button>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer style="margin-top:0">
   <div class="footer-grid">
@@ -776,17 +786,16 @@
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="reservation.html">Réserver</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Horaires</h4>
       <ul>
-        <li><a>Lun – Ven : 11h–14h & 18h–22h30</a></li>
-        <li><a>Samedi : 11h–23h</a></li>
-        <li><a>Dimanche : 11h–22h</a></li>
-        <li><a>🛵 Livraison dès 18h</a></li>
+        <li><a>11H à 22H30 sans coupure</a></li>
+        <li><a>du lundi au lundi</a></li>
+        <li><a>🛵 livraison gratuite dès 18H</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -803,12 +812,91 @@
 
 <script src="js/main.js"></script>
 <script>
+let currentConfig = null;
+const SAUCES = ['Blanche','Samouraï','Harissa','Algérienne','Barbecue','Andalouse'];
+const BOISSONS = ['Aucune','Coca-Cola','Fanta','Sprite','Oasis','Eau'];
+const VIANDES = ['poulet','poulet curry','kefta','merguez'];
+
 function showOrderCat(cat,btn){
   document.querySelectorAll('.menu-category').forEach(c=>c.classList.remove('active'));
   document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(cat).classList.add('active');
   btn.classList.add('active');
 }
+
+function renderOptions(name,type){
+  let html='';
+  if(type==='sandwich'){
+    html += `<div class="form-group"><label>2e viande (optionnel)</label><select class="form-control" id="cfg-second-meat"><option value="">Aucune</option>${VIANDES.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+    html += `<div class="form-group"><label>Sauce</label><select class="form-control" id="cfg-sauce">${SAUCES.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+    html += `<div class="form-group"><label>Boisson</label><select class="form-control" id="cfg-drink">${BOISSONS.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+  }
+  if(type==='assiette'){
+    html += `<div class="form-group"><label>Sauce</label><select class="form-control" id="cfg-sauce">${SAUCES.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+    html += `<div class="form-group"><label>Boisson</label><select class="form-control" id="cfg-drink">${BOISSONS.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+  }
+  if(type==='tacos'){
+    const count = name.includes('Maxi') ? 3 : (name.includes('Double') ? 2 : 1);
+    for(let i=1;i<=count;i++){
+      html += `<div class="form-group"><label>Viande ${i}</label><select class="form-control" id="cfg-meat-${i}">${VIANDES.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+    }
+    html += `<div class="form-group"><label>Supplément viande (tacos uniquement)</label><select class="form-control" id="cfg-meat-sup"><option value="">Aucun</option>${VIANDES.map(v=>`<option value="${v}">+${v} (+1,50 €)</option>`).join('')}</select></div>`;
+    html += `<div class="form-group"><label>Sauce</label><select class="form-control" id="cfg-sauce">${SAUCES.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+    html += `<div class="form-group"><label>Boisson</label><select class="form-control" id="cfg-drink">${BOISSONS.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+  }
+  if(type==='barquette'){
+    html += `<div class="form-group"><label>Taille</label><select class="form-control" id="cfg-size"><option value="Petite">Petite</option><option value="Grande">Grande</option></select></div>`;
+    if(name.includes('Viande')){
+      html += `<div class="form-group"><label>Viande</label><select class="form-control" id="cfg-meat">${VIANDES.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+    }
+    html += `<div class="form-group"><label>Sauce</label><select class="form-control" id="cfg-sauce">${SAUCES.map(v=>`<option value="${v}">${v}</option>`).join('')}</select></div>`;
+  }
+  document.getElementById('config-fields').innerHTML = html || '<p style="color:var(--text-muted)">Aucune option nécessaire.</p>';
+}
+
+function openConfigurator(name,price,type){
+  currentConfig = {name,price,type};
+  document.getElementById('config-title').textContent = name;
+  renderOptions(name,type);
+  document.getElementById('config-modal').style.display='flex';
+}
+
+function closeConfigurator(){
+  document.getElementById('config-modal').style.display='none';
+  currentConfig = null;
+}
+
+function confirmConfigurator(){
+  if(!currentConfig)return;
+  const opts=[];
+  let finalName=currentConfig.name;
+  let price=currentConfig.price;
+
+  const second=document.getElementById('cfg-second-meat')?.value;
+  if(second){opts.push(`2e viande: ${second}`); price += 1.50;}
+  const size=document.getElementById('cfg-size')?.value;
+  if(size){opts.push(`Taille: ${size}`); if(size==='Grande') price += 2;}
+  const meat=document.getElementById('cfg-meat')?.value;
+  if(meat){opts.push(`Viande: ${meat}`);}
+  const meatSup=document.getElementById('cfg-meat-sup')?.value;
+  if(meatSup){opts.push(`Supplément viande: ${meatSup}`); price += 1.50;}
+
+  for(let i=1;i<=3;i++){
+    const val=document.getElementById(`cfg-meat-${i}`)?.value;
+    if(val) opts.push(`Viande ${i}: ${val}`);
+  }
+
+  const sauce=document.getElementById('cfg-sauce')?.value;
+  if(sauce) opts.push(`Sauce: ${sauce}`);
+  const drink=document.getElementById('cfg-drink')?.value;
+  if(drink && drink!=='Aucune') {opts.push(`Boisson: ${drink}`); price += 1.50;}
+
+  if(currentConfig.type==='barquette' && size) finalName = `${currentConfig.name} ${size}`;
+
+  addToCart(finalName, Number(price.toFixed(2)), '', { options: opts });
+  closeConfigurator();
+}
+
 function setOrderType(type,btn){
   document.querySelectorAll('.order-type-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -819,7 +907,7 @@ function setOrderType(type,btn){
   else{df.style.display='none';pi.style.display='block';dr.style.display='none';}
   updateCartUI();
 }
-// TODO: brancher ce formulaire à un endpoint réel / email / Supabase / Formspree avant mise en ligne définitive
+
 function validateOrder(){
   if(cart.length===0){showNotification('Panier vide','Ajoutez des articles avant de valider');return;}
   const type=getOrderType();
@@ -839,6 +927,7 @@ function validateOrder(){
   cart=[];saveCart();
   showNotification('Commande envoyée !','Nous vous contacterons très bientôt');
 }
+
 const params=new URLSearchParams(window.location.search);
 if(params.get('type')==='livraison')setOrderType('livraison',document.querySelector('[data-type="livraison"]'));
 const now=new Date();
