@@ -14,7 +14,7 @@ if (cursor && window.innerWidth > 768) {
   document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
-    
+
     setTimeout(() => {
       if (cursorFollower) {
         cursorFollower.style.left = e.clientX + 'px';
@@ -94,29 +94,52 @@ function showNotification(title, message) {
 // ============ CART SYSTEM ============
 let cart = JSON.parse(sessionStorage.getItem('divangrill_cart') || '[]');
 
+function normalizeCartItem(item) {
+  return {
+    key: item.key || item.name,
+    name: item.name,
+    price: Number(item.price || 0),
+    qty: Number(item.qty || 1),
+    image: item.image || '',
+    options: Array.isArray(item.options) ? item.options : []
+  };
+}
+
+cart = cart.map(normalizeCartItem);
+
 function saveCart() {
   sessionStorage.setItem('divangrill_cart', JSON.stringify(cart));
   updateCartUI();
   updateCartBadge();
 }
 
-function addToCart(name, price, image) {
-  const existing = cart.find(i => i.name === name);
+function buildItemKey(name, options = []) {
+  const normalizedOptions = options.filter(Boolean).map(opt => String(opt).trim()).sort();
+  return normalizedOptions.length ? `${name}__${normalizedOptions.join('__')}` : name;
+}
+
+function addToCart(name, price, image, config = null) {
+  const options = config?.options || [];
+  const key = config?.key || buildItemKey(name, options);
+  const existing = cart.find(i => i.key === key);
+
   if (existing) {
     existing.qty++;
   } else {
-    cart.push({ name, price, qty: 1, image });
+    cart.push({ key, name, price: Number(price), qty: 1, image, options });
   }
+
   saveCart();
-  showNotification('Ajouté !', name + ' ajouté au panier');
+  const details = options.length ? ` (${options.join(' · ')})` : '';
+  showNotification('Ajouté !', `${name}${details} ajouté au panier`);
 }
 
-function removeFromCart(name) {
-  const existing = cart.find(i => i.name === name);
+function removeFromCart(key) {
+  const existing = cart.find(i => i.key === key);
   if (existing) {
     existing.qty--;
     if (existing.qty <= 0) {
-      cart = cart.filter(i => i.name !== name);
+      cart = cart.filter(i => i.key !== key);
     }
   }
   saveCart();
@@ -133,11 +156,10 @@ function updateCartBadge() {
 
 function updateCartUI() {
   const cartItems = document.querySelector('.cart-items');
-  const cartEmpty = document.querySelector('.cart-empty');
   const cartTotal = document.querySelector('.cart-subtotal');
   const cartDelivery = document.querySelector('.cart-delivery-fee');
   const cartGrand = document.querySelector('.cart-grand-total');
-  
+
   if (!cartItems) return;
 
   if (cart.length === 0) {
@@ -147,21 +169,29 @@ function updateCartUI() {
     return;
   }
 
-  const deliveryFee = getOrderType() === 'livraison' ? 2.90 : 0;
+  const deliveryFee = getOrderType() === 'livraison' ? 0 : 0;
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const grand = subtotal + deliveryFee;
 
-  cartItems.innerHTML = cart.map(item => `
-    <div class="cart-item" data-name="${item.name}">
-      <div class="cart-item-name">${item.name}</div>
-      <div class="cart-item-qty">
-        <button class="qty-btn" onclick="removeFromCart('${item.name}')">−</button>
-        <span>${item.qty}</span>
-        <button class="qty-btn" onclick="addToCart('${item.name}', ${item.price}, '')">+</button>
+  cartItems.innerHTML = cart.map(item => {
+    const opts = item.options?.length
+      ? `<div class="cart-item-options">${item.options.join(' · ')}</div>`
+      : '';
+    return `
+      <div class="cart-item" data-key="${item.key}">
+        <div>
+          <div class="cart-item-name">${item.name}</div>
+          ${opts}
+        </div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="removeFromCart('${item.key}')">−</button>
+          <span>${item.qty}</span>
+          <button class="qty-btn" onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, '', { key: '${item.key}', options: ${JSON.stringify(item.options || [])} })">+</button>
+        </div>
+        <div class="cart-item-price">${(item.price * item.qty).toFixed(2).replace('.', ',')} €</div>
       </div>
-      <div class="cart-item-price">${(item.price * item.qty).toFixed(2).replace('.', ',')} €</div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   if (cartTotal) cartTotal.textContent = subtotal.toFixed(2).replace('.', ',') + ' €';
   if (cartDelivery) cartDelivery.textContent = deliveryFee === 0 ? 'Gratuit' : deliveryFee.toFixed(2).replace('.', ',') + ' €';
@@ -181,10 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ============ SMOOTH PAGE TRANSITIONS ============
 document.querySelectorAll('a[href$=".html"]').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const href = link.getAttribute('href');
-    if (href && !href.startsWith('#') && !href.startsWith('http')) {
-      // Allow normal navigation
-    }
+  link.addEventListener('click', () => {
+    // Allow normal navigation
   });
 });

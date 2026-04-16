@@ -19,7 +19,6 @@
   <a href="index.html">Accueil</a>
   <a href="menu.html">Menu</a>
   <a href="commander.html">Commander</a>
-  <a href="reservation.html">Réserver</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -29,7 +28,6 @@
     <li><a href="index.html">Accueil</a></li>
     <li><a href="menu.html">Notre Menu</a></li>
     <li><a href="commander.html">Commander</a></li>
-    <li><a href="reservation.html">Réserver</a></li>
     <li><a href="contact.html" style="color:var(--gold)">Contact</a></li>
     <li><a href="commander.html" class="nav-cta">Commander en ligne</a></li>
   </ul>
@@ -65,7 +63,7 @@
           <div>
             <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold);margin-bottom:6px;">TÉLÉPHONE</div>
             <a href="tel:+33952502528" style="color:var(--cream);text-decoration:none;font-size:18px;font-family:'Cormorant Garamond',serif;">09 52 50 25 28</a>
-            <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">Du lundi au dimanche, dès 11h</p>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">11H à 22H30 sans coupure · du lundi au lundi</p>
           </div>
         </div>
 
@@ -93,16 +91,16 @@
         <div style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold);margin-bottom:16px;">HORAIRES D'OUVERTURE</div>
         <table style="width:100%;font-size:13px;color:var(--text-muted);border-collapse:collapse;">
           <tr style="border-bottom:1px solid var(--border-gold);">
-            <td style="padding:8px 0;">Lundi – Vendredi</td>
-            <td style="text-align:right;color:var(--cream);">11h – 14h &amp; 18h – 22h30</td>
+            <td style="padding:8px 0;">Horaires</td>
+            <td style="text-align:right;color:var(--cream);">11H à 22H30 sans coupure</td>
           </tr>
           <tr style="border-bottom:1px solid var(--border-gold);">
-            <td style="padding:8px 0;">Samedi</td>
-            <td style="text-align:right;color:var(--cream);">11h00 – 23h00</td>
+            <td style="padding:8px 0;">Jours</td>
+            <td style="text-align:right;color:var(--cream);">du lundi au lundi</td>
           </tr>
           <tr>
-            <td style="padding:8px 0;">Dimanche</td>
-            <td style="text-align:right;color:var(--cream);">11h00 – 22h00</td>
+            <td style="padding:8px 0;">Livraison</td>
+            <td style="text-align:right;color:var(--cream);">gratuite dès 18H</td>
           </tr>
         </table>
       </div>
@@ -203,15 +201,15 @@
         <li><a href="index.html">Accueil</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="commander.html">Commander</a></li>
-        <li><a href="reservation.html">Réserver</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Horaires</h4>
       <ul>
-        <li><a>Lun – Ven : 11h–14h & 18h–22h30</a></li>
-        <li><a>Samedi : 11h–23h</a></li>
-        <li><a>Dimanche : 11h–22h</a></li>
+        <li><a>11H à 22H30 sans coupure</a></li>
+        <li><a>du lundi au lundi</a></li>
+        <li><a>🛵 livraison gratuite dès 18H</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -228,7 +226,6 @@
 
 <script src="js/main.js"></script>
 <script>
-// TODO: brancher ce formulaire à un endpoint réel / email / Supabase / Formspree avant mise en ligne définitive
 function submitContact() {
   const name = document.getElementById('c-name').value;
   const email = document.getElementById('c-email').value;

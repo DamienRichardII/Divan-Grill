@@ -1330,6 +1330,48 @@ footer {
   text-align: right;
 }
 
+
+
+.cart-item-options {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.config-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.config-modal-card {
+  width: min(560px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+  background: var(--dark-2);
+  border: 1px solid var(--border-gold);
+  padding: 24px;
+  position: relative;
+}
+
+.config-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-gold);
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+}
+
 .cart-total {
   padding: 20px 24px;
   border-top: 1px solid var(--border-gold);
@@ -1370,6 +1412,11 @@ footer {
 
 .cart-checkout-btn:hover {
   background: var(--gold-light);
+}
+
+.cart-checkout-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
 }
 
 /* ============ ORDER TYPE SECTION ============ */
